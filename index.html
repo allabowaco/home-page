@@ -3,134 +3,182 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>اتصل بي</title>
+<title>شركة اللبوة للصرافة</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-body{
+
+*{
   margin:0;
-  font-family:'Segoe UI',Tahoma;
-  background:linear-gradient(135deg,#0a3d62,#3c6382,#1e90ff);
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Cairo',sans-serif;
+}
+
+body{
   height:100vh;
   display:flex;
   justify-content:center;
   align-items:center;
-  color:#fff;
+  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
   direction:rtl;
   overflow:hidden;
+  color:#fff;
 }
 
-/* background animation */
+/* animated background */
 body::before{
   content:"";
   position:absolute;
   width:200%;
   height:200%;
-  background:radial-gradient(circle,#ffffff22 10%,transparent 10%);
-  background-size:50px 50px;
-  animation:move 20s linear infinite;
-}
-@keyframes move{
-  from{transform:translate(0,0)}
-  to{transform:translate(-50px,-50px)}
+  background:radial-gradient(circle,#ffffff15 10%,transparent 10%);
+  background-size:60px 60px;
+  animation:move 25s linear infinite;
 }
 
+@keyframes move{
+  from{transform:translate(0,0)}
+  to{transform:translate(-60px,-60px)}
+}
+
+/* card */
 .container{
   position:relative;
-  text-align:center;
-  background:rgba(255,255,255,0.1);
-  padding:40px 30px;
+  width:90%;
+  max-width:350px;
+  padding:35px 25px;
   border-radius:25px;
-  backdrop-filter:blur(15px);
-  box-shadow:0 15px 40px rgba(0,0,0,0.4);
-  width:280px;
+
+  /* Glassmorphism */
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,0.2);
+
+  /* Neumorphism shadow */
+  box-shadow:
+    10px 10px 30px rgba(0,0,0,0.5),
+    -10px -10px 30px rgba(255,255,255,0.05);
+
+  text-align:center;
   animation:fadeIn 1s ease;
 }
 
 @keyframes fadeIn{
-  from{opacity:0;transform:translateY(20px)}
-  to{opacity:1;transform:translateY(0)}
+  from{opacity:0; transform:translateY(30px)}
+  to{opacity:1; transform:translateY(0)}
 }
 
-h1{
+/* logo */
+.logo{
+  font-size:40px;
   margin-bottom:10px;
-  font-size:26px;
+}
+
+/* title */
+h1{
+  font-size:22px;
+  font-weight:700;
 }
 
 .sub{
-  font-size:14px;
-  opacity:.8;
-  margin-bottom:25px;
+  font-size:13px;
+  opacity:.7;
+  margin:10px 0 25px;
 }
 
+/* buttons */
 .btn{
   display:flex;
   align-items:center;
   justify-content:center;
   gap:10px;
-  margin:12px 0;
   padding:14px;
+  margin:10px 0;
   border-radius:50px;
   text-decoration:none;
-  font-size:17px;
-  font-weight:bold;
-  transition:0.3s;
+  font-size:16px;
+  font-weight:600;
   position:relative;
   overflow:hidden;
+  transition:0.3s;
 }
 
-/* shine effect */
+/* shine */
 .btn::before{
   content:"";
   position:absolute;
   width:0%;
   height:100%;
-  background:rgba(255,255,255,0.3);
+  background:rgba(255,255,255,0.25);
   left:0;
   top:0;
   transition:0.4s;
 }
+
 .btn:hover::before{
   width:100%;
 }
 
+.btn:hover{
+  transform:translateY(-3px) scale(1.05);
+}
+
+/* styles */
 .call{
-  background:#1e90ff;
-  color:#fff;
+  background:linear-gradient(135deg,#1e90ff,#4facfe);
 }
 
 .whatsapp{
-  background:#25D366;
-  color:#fff;
+  background:linear-gradient(135deg,#25D366,#128C7E);
 }
 
-.btn:hover{
-  transform:scale(1.07);
-  box-shadow:0 8px 20px rgba(0,0,0,0.4);
+.location{
+  background:linear-gradient(135deg,#ff7e5f,#feb47b);
 }
 
+/* footer */
 .footer{
-  margin-top:20px;
+  margin-top:18px;
   font-size:12px;
   opacity:.6;
 }
+
+/* responsive */
+@media(max-width:400px){
+  h1{font-size:20px}
+  .btn{font-size:14px;padding:12px}
+}
+
 </style>
 </head>
 
 <body>
 
 <div class="container">
-  <h1>اتصل بي</h1>
-  <div class="sub">Contact Me</div>
+
+  <div class="logo">💱</div>
+
+  <h1>شركة اللبوة للصرافة</h1>
+  <div class="sub">Al Labwa Exchange Company</div>
 
   <a class="btn call" href="tel:+9647735585980">
-    📞 اتصال هاتفي
+    📞 اتصال مباشر
   </a>
 
   <a class="btn whatsapp" href="https://wa.me/9647735585980">
-    💬 واتساب
+    💬 تواصل واتساب
   </a>
 
-  <div class="footer">جاهز للتواصل في أي وقت</div>
+  <a class="btn location" href="#">
+    📍 موقع الشركة
+  </a>
+
+  <div class="footer">
+    خدمة تحويل العملات بسرعة وأمان
+  </div>
+
 </div>
 
 </body>
