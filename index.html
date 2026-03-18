@@ -3,249 +3,300 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شركة اللبوة للصرافة - Al Labwa Exchange</title>
+    <title>شركة اللبوة للصرافة | Al Labwa Exchange</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
 
     <style>
-        :root {
-            --primary-blue: #007bff;
-            --secondary-blue: #00c6ff;
-            --glass-bg: rgba(255, 255, 255, 0.1);
-            --glass-border: rgba(255, 255, 255, 0.2);
-            --text-color: #ffffff;
-            --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-        }
-
+        /* =========================================
+           CSS Reset & Base Styles
+           ========================================= */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Cairo', sans-serif;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
             min-height: 100vh;
             display: flex;
-            align-items: center;
             justify-content: center;
-            overflow-x: hidden;
-            background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #0052d4);
+            align-items: center;
+            background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #0b8793, #1c92d2);
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
+            padding: 20px;
+            color: #ffffff;
+            overflow-x: hidden;
         }
 
-        /* Animated Background */
+        /* Animated Background Gradient */
         @keyframes gradientBG {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
 
-        .container {
-            width: 90%;
-            max-width: 450px;
-            perspective: 1000px;
-            padding: 20px;
-        }
-
-        /* Glassmorphism Card */
+        /* =========================================
+           Glassmorphism + Neumorphism Card Layout
+           ========================================= */
         .card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 30px;
             padding: 40px 30px;
+            width: 100%;
+            max-width: 450px;
             text-align: center;
-            box-shadow: var(--card-shadow);
-            animation: cardFadeIn 1s ease-out;
-            color: var(--text-color);
+            box-shadow: 
+                0 8px 32px 0 rgba(0, 0, 0, 0.3),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+            animation: cardFloat 6s ease-in-out infinite;
         }
 
-        @keyframes cardFadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes cardFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
         /* Logo Styling */
-        .logo-area {
-            font-size: 4rem;
-            margin-bottom: 15px;
-            filter: drop-shadow(0 0 10px rgba(255,255,255,0.5));
-            animation: pulse 3s infinite;
+        .logo-container {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 20px auto;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 
+                8px 8px 16px rgba(0, 0, 0, 0.2), 
+                -8px -8px 16px rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: pulse 2s infinite;
+        }
+
+        .logo-container svg {
+            width: 45px;
+            height: 45px;
+            fill: #ffffff;
         }
 
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+            0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.2); }
+            70% { box-shadow: 0 0 0 15px rgba(255, 255, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
         }
 
-        h1 { font-weight: 900; font-size: 1.8rem; margin-bottom: 5px; }
-        p.subtitle { font-weight: 400; font-size: 1rem; opacity: 0.8; margin-bottom: 30px; letter-spacing: 1px; }
+        /* Typography */
+        h1 {
+            font-weight: 800;
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
 
-        /* Buttons Grid */
-        .button-stack {
+        h2 {
+            font-weight: 400;
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        /* =========================================
+           Buttons Container & Neumorphic Buttons
+           ========================================= */
+        .buttons-grid {
             display: flex;
             flex-direction: column;
             gap: 15px;
         }
 
         .btn {
-            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
-            padding: 15px;
-            border-radius: 12px;
+            gap: 15px;
             text-decoration: none;
-            color: white;
+            color: #ffffff;
             font-weight: 600;
             font-size: 1.1rem;
-            border: none;
-            cursor: pointer;
-            overflow: hidden;
+            padding: 16px 20px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 
+                6px 6px 12px rgba(0, 0, 0, 0.15), 
+                -6px -6px 12px rgba(255, 255, 255, 0.05);
             transition: all 0.3s ease;
-            /* Neumorphism-inspired shadow inside glass */
-            box-shadow: inset 2px 2px 5px rgba(255,255,255,0.1), 5px 5px 15px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
         }
 
-        .btn i { font-size: 1.3rem; }
-
-        /* Specific Button Colors */
-        .btn-call { background: linear-gradient(135deg, #2ecc71, #27ae60); }
-        .btn-wa { background: linear-gradient(135deg, #25d366, #128c7e); }
-        .btn-map { background: linear-gradient(135deg, #4285F4, #34a853); }
-        .btn-wifi { background: linear-gradient(135deg, #f39c12, #e67e22); }
-
-        /* Hover Shine Effect */
-        .btn::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
-            transform: rotate(45deg);
-            transition: 0.5s;
-        }
-
-        .btn:hover::after {
-            left: 100%;
-            top: 100%;
-        }
-
-        .btn:hover {
+        /* Glassmorphism/Neumorphism Hover Effect */
+        .btn:hover, .btn:active {
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-            filter: brightness(1.1);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 
+                8px 8px 16px rgba(0, 0, 0, 0.2), 
+                -8px -8px 16px rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
         .btn:active {
-            transform: translateY(0);
+            transform: translateY(1px);
+            box-shadow: 
+                inset 4px 4px 8px rgba(0, 0, 0, 0.2), 
+                inset -4px -4px 8px rgba(255, 255, 255, 0.05);
         }
 
-        /* Footer */
-        .footer {
-            margin-top: 30px;
-            font-size: 0.8rem;
-            opacity: 0.6;
+        /* Specific Button Accents (Optional subtle glows) */
+        .btn-call:hover { text-shadow: 0 0 8px #4CAF50; }
+        .btn-wa:hover { text-shadow: 0 0 8px #25D366; }
+        .btn-map:hover { text-shadow: 0 0 8px #EA4335; }
+        .btn-wifi:hover { text-shadow: 0 0 8px #2196F3; }
+
+        .btn svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+            transition: transform 0.3s ease;
         }
 
-        /* Mobile Adjustments */
-        @media (max-width: 480px) {
-            .card { padding: 30px 20px; }
-            h1 { font-size: 1.5rem; }
+        .btn:hover svg {
+            transform: scale(1.1);
         }
+
+        /* Custom Toast Notification for Wi-Fi */
+        #toast {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 8px;
+            padding: 16px;
+            position: fixed;
+            z-index: 1;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            opacity: 0;
+            transition: opacity 0.5s, visibility 0.5s;
+        }
+
+        #toast.show {
+            visibility: visible;
+            opacity: 1;
+        }
+
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <main class="card">
-            <div class="logo-area">
-                🦁
-            </div>
-            
-            <h1 id="mainTitle"></h1>
-            <p class="subtitle" id="subTitle"></p>
+    <div class="card">
+        <div class="logo-container">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-1h-1c-.55 0-1-.45-1-1v-3c0-.55.45-1 1-1h3v-1h-3V9h2V8h2v1h1c.55 0 1 .45 1 1v3c0 .55-.45 1-1 1h-3v1h3v1h-2v1z"/>
+            </svg>
+        </div>
 
-            <div class="button-stack">
-                <a id="linkCall" href="#" class="btn btn-call">
-                    <i class="fa-solid fa-phone-volume"></i>
-                    <span>اتصل بنا</span>
-                </a>
+        <h1 id="ui-company-name"></h1>
+        <h2 id="ui-company-subname"></h2>
 
-                <a id="linkWA" href="#" class="btn btn-wa">
-                    <i class="fa-brands fa-whatsapp"></i>
-                    <span>واتساب</span>
-                </a>
+        <div class="buttons-grid">
+            <a href="#" id="ui-btn-call" class="btn btn-call">
+                <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                اتصل بنا
+            </a>
 
-                <a id="linkMap" href="#" target="_blank" class="btn btn-map">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <span>موقعنا على الخريطة</span>
-                </a>
+            <a href="#" id="ui-btn-wa" class="btn btn-wa" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.71.44 3.36 1.24 4.81L2 22l5.39-1.42c1.4.74 2.99 1.13 4.65 1.13 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2m5.46 14.07c-.24.68-1.35 1.25-1.92 1.34-.51.08-1.18.23-3.69-.81-3.03-1.26-5.01-4.38-5.16-4.58-.15-.2-1.24-1.64-1.24-3.13s.77-2.22 1.04-2.5c.24-.26.54-.33.72-.33.18 0 .36 0 .52.01.18.01.42-.07.65.48.24.58.8 1.95.87 2.1.07.15.12.33.02.53-.1.2-.15.33-.3.5-.15.17-.32.37-.45.5-.15.15-.31.32-.13.62.18.3 0 .8 1.42 2.01 1.22 1.05 2 1.35 2.3 1.5.3.15.48.12.66-.08.18-.21.78-.9 1-1.21.21-.3.43-.25.7-.15.27.1 1.74.82 2.04.97.3.15.5.22.57.35.07.13.07.75-.17 1.43"/></svg>
+                راسلنا على واتساب
+            </a>
 
-                <button id="btnWifi" class="btn btn-wifi" onclick="copyWifi()">
-                    <i class="fa-solid fa-wifi"></i>
-                    <span>كلمة سر الواي فاي</span>
-                </button>
-            </div>
+            <a href="#" id="ui-btn-map" class="btn btn-map" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                موقعنا على الخريطة
+            </a>
 
-            <footer class="footer">
-                &copy; <span id="year"></span> جميع الحقوق محفوظة
-            </footer>
-        </main>
+            <a href="#" id="ui-btn-wifi" class="btn btn-wifi">
+                <svg viewBox="0 0 24 24"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg>
+                اتصل بشبكة Wi-Fi
+            </a>
+        </div>
     </div>
 
+    <div id="toast">تم نسخ كلمة مرور الشبكة بنجاح!</div>
+
     <script>
-        /** * CONFIGURATION VARIABLES
-         * Edit these values to update the page content dynamically
+        /**
+         * 1. CONFIGURATION VARIABLES
+         * Edit these variables to customize the page.
          */
         const config = {
             companyName: "شركة اللبوة للصرافة",
-            companySubName: "Al Labwa Exchange Company",
-            phoneNumber: "+9647735585980",
-            whatsAppNumber: "9647735585980",
-            wifiSSID: "allabowa",
-            wifiPassword: "88888888",
-            googleMapsLink: "https://maps.google.com/?q=Al+Labwa+Exchange" // Replace with your exact link
+            companySubName: "Al Labwa Exchange Co.",
+            phoneNumber: "+9640000000000",             // Include country code without spaces
+            whatsAppNumber: "9640000000000",            // Numbers only, include country code (e.g. 964 for Iraq)
+            whatsAppMessage: "مرحباً، أود الاستفسار عن أسعار الصرف اليوم.",
+            wifiSSID: "AlLabwa_Guest",
+            wifiPassword: "SecurePassword123!",
+            googleMapsLink: "https://goo.gl/maps/YOUR_GOOGLE_MAPS_LINK_HERE" 
         };
 
-        // Injecting data into HTML elements
-        document.getElementById('mainTitle').innerText = config.companyName;
-        document.getElementById('subTitle').innerText = config.companySubName;
-        document.getElementById('year').innerText = new Date().getFullYear();
-
-        // Setting up links
-        document.getElementById('linkCall').href = `tel:${config.phoneNumber}`;
-        document.getElementById('linkWA').href = `https://wa.me/${config.whatsAppNumber}`;
-        document.getElementById('linkMap').href = config.googleMapsLink;
-
-        // Wifi Logic: Copy password to clipboard
-        function copyWifi() {
-            const btn = document.getElementById('btnWifi');
-            const originalText = btn.innerHTML;
+        /**
+         * 2. INITIALIZATION LOGIC
+         * Injects the configuration variables into the HTML DOM.
+         */
+        document.addEventListener('DOMContentLoaded', () => {
             
-            navigator.clipboard.writeText(config.wifiPassword).then(() => {
-                btn.innerHTML = `<i class="fa-solid fa-check"></i> تم نسخ الرمز!`;
-                btn.style.background = "linear-gradient(135deg, #27ae60, #2ecc71)";
-                
-                setTimeout(() => {
-                    btn.innerHTML = originalText;
-                    btn.style.background = ""; // Returns to CSS default
-                }, 3000);
-            }).catch(err => {
-                alert("رمز الواي فاي هو: " + config.wifiPassword);
+            // Set Titles
+            document.getElementById('ui-company-name').innerText = config.companyName;
+            document.getElementById('ui-company-subname').innerText = config.companySubName;
+
+            // Set Call Link
+            document.getElementById('ui-btn-call').href = `tel:${config.phoneNumber}`;
+
+            // Set WhatsApp Link (properly encodes the custom message)
+            const waUrl = `https://wa.me/${config.whatsAppNumber}?text=${encodeURIComponent(config.whatsAppMessage)}`;
+            document.getElementById('ui-btn-wa').href = waUrl;
+
+            // Set Google Maps Link
+            document.getElementById('ui-btn-map').href = config.googleMapsLink;
+
+            // Set Wi-Fi Link
+            // Note: Browsers handle WIFI: URLs differently. We set the href for devices that support it natively via QR/Intent, 
+            // but we also attach a click event below to copy the password as a reliable fallback.
+            const wifiUrl = `WIFI:S:${config.wifiSSID};T:WPA;P:${config.wifiPassword};;`;
+            const wifiBtn = document.getElementById('ui-btn-wifi');
+            wifiBtn.href = wifiUrl;
+
+            // Wi-Fi Click Fallback (Copy Password to Clipboard)
+            wifiBtn.addEventListener('click', (e) => {
+                // Copy to clipboard
+                navigator.clipboard.writeText(config.wifiPassword).then(() => {
+                    // Show Toast Notification
+                    const toast = document.getElementById("toast");
+                    toast.className = "show";
+                    setTimeout(() => { 
+                        toast.className = toast.className.replace("show", ""); 
+                    }, 3000);
+                }).catch(err => {
+                    console.error('Failed to copy password: ', err);
+                });
             });
-        }
+        });
     </script>
 </body>
 </html>
