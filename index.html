@@ -1,197 +1,251 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>شركة اللبوة للصرافة</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شركة اللبوة للصرافة - Al Labwa Exchange</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #007bff;
+            --secondary-blue: #00c6ff;
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --text-color: #ffffff;
+            --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
 
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Cairo',sans-serif;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
 
-body{
-  height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  background:linear-gradient(135deg,#1e3c72,#2a5298);
-  direction:rtl;
-  overflow:hidden;
-  color:#fff;
-}
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+            background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #0052d4);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
 
-/* animated blue pattern */
-body::before{
-  content:"";
-  position:absolute;
-  width:200%;
-  height:200%;
-  background:radial-gradient(circle,#ffffff10 10%,transparent 10%);
-  background-size:50px 50px;
-  animation:move 20s linear infinite;
-}
+        /* Animated Background */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
 
-@keyframes move{
-  from{transform:translate(0,0);}
-  to{transform:translate(-50px,-50px);}
-}
+        .container {
+            width: 90%;
+            max-width: 450px;
+            perspective: 1000px;
+            padding: 20px;
+        }
 
-/* main container */
-.container{
-  position:relative;
-  width:90%;
-  max-width:400px;
-  padding:40px 30px;
-  border-radius:25px;
-  text-align:center;
+        /* Glassmorphism Card */
+        .card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--card-shadow);
+            animation: cardFadeIn 1s ease-out;
+            color: var(--text-color);
+        }
 
-  /* glass effect */
-  background:rgba(255,255,255,0.08);
-  backdrop-filter:blur(18px);
-  border:1px solid rgba(255,255,255,0.2);
+        @keyframes cardFadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-  /* neumorphism shadows */
-  box-shadow:
-    10px 10px 30px rgba(0,0,0,0.5),
-    -10px -10px 30px rgba(255,255,255,0.05);
+        /* Logo Styling */
+        .logo-area {
+            font-size: 4rem;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 0 10px rgba(255,255,255,0.5));
+            animation: pulse 3s infinite;
+        }
 
-  animation:fadeIn 1s ease;
-  transition:0.5s;
-}
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
 
-.container:hover{
-  transform:translateY(-5px) scale(1.02);
-}
+        h1 { font-weight: 900; font-size: 1.8rem; margin-bottom: 5px; }
+        p.subtitle { font-weight: 400; font-size: 1rem; opacity: 0.8; margin-bottom: 30px; letter-spacing: 1px; }
 
-@keyframes fadeIn{
-  from{opacity:0; transform:translateY(30px);}
-  to{opacity:1; transform:translateY(0);}
-}
+        /* Buttons Grid */
+        .button-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
 
-/* logo */
-.logo{
-  font-size:50px;
-  margin-bottom:15px;
-}
+        .btn {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 15px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            /* Neumorphism-inspired shadow inside glass */
+            box-shadow: inset 2px 2px 5px rgba(255,255,255,0.1), 5px 5px 15px rgba(0,0,0,0.2);
+        }
 
-/* title */
-h1{
-  font-size:24px;
-  font-weight:700;
-}
+        .btn i { font-size: 1.3rem; }
 
-.sub{
-  font-size:14px;
-  opacity:.7;
-  margin:10px 0 25px;
-}
+        /* Specific Button Colors */
+        .btn-call { background: linear-gradient(135deg, #2ecc71, #27ae60); }
+        .btn-wa { background: linear-gradient(135deg, #25d366, #128c7e); }
+        .btn-map { background: linear-gradient(135deg, #4285F4, #34a853); }
+        .btn-wifi { background: linear-gradient(135deg, #f39c12, #e67e22); }
 
-/* buttons */
-.btn{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  padding:14px;
-  margin:10px 0;
-  border-radius:50px;
-  text-decoration:none;
-  font-size:16px;
-  font-weight:600;
-  position:relative;
-  overflow:hidden;
-  transition:0.3s;
-}
+        /* Hover Shine Effect */
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+            transform: rotate(45deg);
+            transition: 0.5s;
+        }
 
-/* shine effect */
-.btn::before{
-  content:"";
-  position:absolute;
-  width:0%;
-  height:100%;
-  background:rgba(255,255,255,0.25);
-  left:0;
-  top:0;
-  transition:0.4s;
-}
-.btn:hover::before{
-  width:100%;
-}
-.btn:hover{
-  transform:translateY(-3px) scale(1.05);
-}
+        .btn:hover::after {
+            left: 100%;
+            top: 100%;
+        }
 
-/* individual button colors */
-.call{
-  background:linear-gradient(135deg,#1e90ff,#4facfe);
-  color:#fff;
-}
-.whatsapp{
-  background:linear-gradient(135deg,#25D366,#128C7E);
-  color:#fff;
-}
-.location{
-  background:linear-gradient(135deg,#2980b9,#6dd5fa);
-  color:#fff;
-}
-.wifi{
-  background:linear-gradient(135deg,#f39c12,#f1c40f);
-  color:#fff;
-}
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            filter: brightness(1.1);
+        }
 
-/* footer */
-.footer{
-  margin-top:18px;
-  font-size:12px;
-  opacity:.6;
-}
+        .btn:active {
+            transform: translateY(0);
+        }
 
-/* responsive */
-@media(max-width:420px){
-  h1{font-size:20px}
-  .btn{font-size:14px;padding:12px}
-  .logo{font-size:40px}
-}
-</style>
+        /* Footer */
+        .footer {
+            margin-top: 30px;
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 480px) {
+            .card { padding: 30px 20px; }
+            h1 { font-size: 1.5rem; }
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="container">
+    <div class="container">
+        <main class="card">
+            <div class="logo-area">
+                🦁
+            </div>
+            
+            <h1 id="mainTitle"></h1>
+            <p class="subtitle" id="subTitle"></p>
 
-  <div class="logo">💱</div>
+            <div class="button-stack">
+                <a id="linkCall" href="#" class="btn btn-call">
+                    <i class="fa-solid fa-phone-volume"></i>
+                    <span>اتصل بنا</span>
+                </a>
 
-  <h1>شركة اللبوة للصرافة</h1>
-  <div class="sub">Al Labwa Exchange Company</div>
+                <a id="linkWA" href="#" class="btn btn-wa">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <span>واتساب</span>
+                </a>
 
-  <!-- Buttons -->
-  <a class="btn call" href="tel:+9647735585980">
-    📞 اتصال مباشر
-  </a>
+                <a id="linkMap" href="#" target="_blank" class="btn btn-map">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>موقعنا على الخريطة</span>
+                </a>
 
-  <a class="btn whatsapp" href="https://wa.me/9647735585980">
-    💬 تواصل واتساب
-  </a>
+                <button id="btnWifi" class="btn btn-wifi" onclick="copyWifi()">
+                    <i class="fa-solid fa-wifi"></i>
+                    <span>كلمة سر الواي فاي</span>
+                </button>
+            </div>
 
-  <a class="btn location" href="https://www.google.com/maps/place/%D8%B4%D8%B1%D9%83%D8%A9+%D8%A7%D9%84%D9%84%D8%A8%D9%88%D8%A9+%D9%84%D9%84%D8%B5%D8%B1%D8%A7%D9%81%D8%A9+%D9%81%D8%B1%D8%B9+%D8%A7%D9%84%D8%B9%D8%A7%D9%85%D8%B1%D9%8A%D8%A9%E2%80%AD/@33.2979026,44.2984106,18z/data=!4m6!3m5!1s0x1559d7ffb077927f:0x49dbf621b7a4f1f6!8m2!3d33.2977691!4d44.2987913!16s%2Fg%2F11y_k8k97j?entry=ttu&g_ep=EgoyMDI2MDMxNS4wIKXMDSoASAFQAw%3D%3D">
-    📍 موقع الشركة
-  </a>
+            <footer class="footer">
+                &copy; <span id="year"></span> جميع الحقوق محفوظة
+            </footer>
+        </main>
+    </div>
 
-  <a class="btn wifi" href="WIFI:T:WPA;S:allabowa;P:88888888;;">
-    📶 اتصال واي فاي
-  </a>
+    <script>
+        /** * CONFIGURATION VARIABLES
+         * Edit these values to update the page content dynamically
+         */
+        const config = {
+            companyName: "شركة اللبوة للصرافة",
+            companySubName: "Al Labwa Exchange Company",
+            phoneNumber: "+9647735585980",
+            whatsAppNumber: "9647735585980",
+            wifiSSID: "allabowa",
+            wifiPassword: "88888888",
+            googleMapsLink: "https://maps.google.com/?q=Al+Labwa+Exchange" // Replace with your exact link
+        };
 
-  <div class="footer">
-    خدمة تحويل العملات بسرعة وأمان
-  </div>
+        // Injecting data into HTML elements
+        document.getElementById('mainTitle').innerText = config.companyName;
+        document.getElementById('subTitle').innerText = config.companySubName;
+        document.getElementById('year').innerText = new Date().getFullYear();
 
-</div>
+        // Setting up links
+        document.getElementById('linkCall').href = `tel:${config.phoneNumber}`;
+        document.getElementById('linkWA').href = `https://wa.me/${config.whatsAppNumber}`;
+        document.getElementById('linkMap').href = config.googleMapsLink;
 
+        // Wifi Logic: Copy password to clipboard
+        function copyWifi() {
+            const btn = document.getElementById('btnWifi');
+            const originalText = btn.innerHTML;
+            
+            navigator.clipboard.writeText(config.wifiPassword).then(() => {
+                btn.innerHTML = `<i class="fa-solid fa-check"></i> تم نسخ الرمز!`;
+                btn.style.background = "linear-gradient(135deg, #27ae60, #2ecc71)";
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.background = ""; // Returns to CSS default
+                }, 3000);
+            }).catch(err => {
+                alert("رمز الواي فاي هو: " + config.wifiPassword);
+            });
+        }
+    </script>
 </body>
 </html>
